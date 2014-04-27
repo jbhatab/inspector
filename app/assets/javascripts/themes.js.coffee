@@ -4,19 +4,21 @@ $ ->
     # Listens for data on the hovered element
     listener = (event) ->
       if event.origin isnt window.location.origin + Routes.theme_path(1)
-        $('.inspector-wrapper .details span').html event.data[0]
+        $('.inspector-wrapper .details span.element-name').html event.data[0]
         hover_block = $('.hover-block')
         hover_block.height(event.data[1])
         hover_block.width(event.data[2])
         hover_block.css('left', event.data[3] + 'px')
         hover_block.css('top', event.data[4] + 'px')
 
+    $('.inspector-wrapper .details span.data-attribute').html $('select.data-selector').val()
+
     # Event handler for the select dropdown
     win = document.getElementById("iframe").contentWindow
     $('select.data-selector').change ->
-      console.log $(this).val()
-      win.postMessage $(this).val(), window.location.origin + Routes.theme_path(1)
-      false
+      $('.inspector-wrapper .details span.data-attribute').html $(this).val()
+      win.postMessage [$(this).val(), true], window.location.origin + Routes.theme_path(1)
+      return false
 
     # Activates or deactivates the inspector
     $('.trigger-inspector').click ->

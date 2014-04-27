@@ -12,15 +12,19 @@
         %option{value: 'page.contact'} Contact
 
   .col-sm-2
-    = link_to 'Show Website', @theme, class: 'btn btn-default btn-block'
+    = link_to 'Show Website', @theme, class: 'btn btn-default btn-block', target: '_blank'
 
 .row.spacer-bottom
   .col-sm-6.col-sm-offset-3
     .inspector-wrapper
       .details
         %p
-          %b Element Name:
-          %span
+          %b Current Element:
+          %span.element-name
+
+        %p
+          %b Data Attribute:
+          %span.data-attribute
 
 
 
