@@ -1,0 +1,5 @@
+- @themes.each_slice(4) do |slice|
+  .row.listing-row
+    - slice.each do |theme|
+      .col-sm-3
+        = render theme, :theme => theme

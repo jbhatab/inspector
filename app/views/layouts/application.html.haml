@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title Inspector
+    = stylesheet_link_tag    "application", media: "all"
+
+    - if content_for? :custom_css
+      = yield :custom_css
+
+    = csrf_meta_tags
+
+  %body{:class => body_classes}
+
+    .container
+      = yield
+
+
+    = javascript_include_tag 'application'
+
+    - if content_for? :scripts
+      = yield :scripts

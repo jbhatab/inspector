@@ -1,0 +1,33 @@
+.row.spacer-bottom.spacer-top
+  .col-sm-2.col-sm-offset-3
+    = link_to 'Activate Inspector', '#', class: 'btn btn-success btn-block trigger-inspector'
+
+  .col-sm-2
+    %form
+      %select.data-selector.form-control
+        %option{value: 'page.title'} Title
+        %option{value: 'page.main-photo'} Main Photo
+        %option{value: 'page.main-link-1'} Main Link 1
+        %option{value: 'page.main-link-2'} Main Link 2
+        %option{value: 'page.contact'} Contact
+
+  .col-sm-2
+    = link_to 'Show Website', @theme, class: 'btn btn-default btn-block'
+
+.row.spacer-bottom
+  .col-sm-6.col-sm-offset-3
+    .inspector-wrapper
+      .details
+        %p
+          %b Element Name:
+          %span
+
+
+
+.row
+  .col-sm-8.col-sm-offset-2
+
+    .iframe-wrapper
+      %iframe{src: theme_url(@theme), width: '100%', height: 600, id: 'iframe'}
+
+      .hover-block

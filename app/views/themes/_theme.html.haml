@@ -1,0 +1,6 @@
+.theme-block
+  .theme-thumbnail
+    = link_to (image_tag 'http://placehold.it/300x300'), inspector_theme_path(theme)
+  = link_to 'Show Website', theme, :class => 'btn btn-primary btn-block expand'
+
+  = link_to 'Inspector', inspector_theme_path(theme), :class => 'btn btn-success btn-block expand'
