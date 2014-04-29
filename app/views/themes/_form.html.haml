@@ -1,14 +1,13 @@
-.panel.panel-default
-  .panel-body
-    = simple_form_for theme do |form|
-      
+= simple_form_for theme do |form|
+  .panel.panel-default
+    .panel-body
       = form.error_notification
 
       = form.input :name, label: 'Title', placeholder: 'Theme Title...', required: false
 
       = form.input :description, label: 'Description', input_html: {class: 'theme-description'}, placeholder: 'Give a brief description of the theme...'
 
-.actions
-  %button.btn.btn-default
-    %i.fa.fa-check-circle
-    Create Theme
+  .actions
+    %button.btn.btn-default
+      %i.fa.fa-check-circle
+      Create Theme
