@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require js-routes
+//= require toastr
+//= require cocoon
 //= require themes

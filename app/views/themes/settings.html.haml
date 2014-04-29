@@ -1,0 +1,41 @@
+.row
+  .col-sm-6
+    %h2.page-title
+      Theme Settings
+
+  .col-sm-6
+    = render 'themes/sub_nav', theme: @theme
+
+= simple_form_for @theme do |form|
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-sm-12
+          = form.error_notification
+
+          = form.input :name, label: 'Title', placeholder: 'Theme Title...', required: false
+
+          = form.input :description, label: 'Description', input_html: {class: 'theme-description'}, placeholder: 'Give a brief description of the theme...'
+
+  .row
+    .col-sm-6
+      %h2.page-title
+        Custom Settings
+
+    .col-sm-6
+      = link_to root_path, class: 'btn btn-default sub-nav-link' do
+        %i.fa.fa-plus-circle
+        Add Setting Group
+
+  
+  .row
+    .col-sm-12
+      = form.simple_fields_for :setting_groups do |setting_group|
+
+        = render 'setting_groups/setting_group_fields', form: setting_group
+
+
+  .actions
+    %button.btn.btn-default
+      %i.fa.fa-refresh
+      Update Theme

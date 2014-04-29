@@ -1,1 +1,12 @@
+.row
+  .col-sm-6
+    %h2.page-title
+      New Theme
+
+  .col-sm-6
+    = link_to root_path, class: 'btn btn-default sub-nav-link' do
+      %i.fa.fa-arrow-circle-left
+      Theme List
+
+
 = render 'themes/form', :theme => @theme

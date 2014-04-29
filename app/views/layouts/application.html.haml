@@ -2,14 +2,18 @@
 %html
   %head
     %title Inspector
-    = stylesheet_link_tag    "application", media: "all"
 
-    - if content_for? :custom_css
-      = yield :custom_css
+    %link{href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel: "stylesheet"}
+    %link{href: "http://fonts.googleapis.com/css?family=Lobster|Roboto:400,300,500,700,900", rel: "stylesheet", type: "text/css"}
+
+    = stylesheet_link_tag "application", media: "all"
 
     = csrf_meta_tags
 
   %body{:class => body_classes}
+    %header
+      %h1.logo
+        = link_to 'Skypager', root_path
 
     .container
       = yield
@@ -19,3 +23,5 @@
 
     - if content_for? :scripts
       = yield :scripts
+
+    = custom_bootstrap_flash

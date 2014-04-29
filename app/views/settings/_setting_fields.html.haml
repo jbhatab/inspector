@@ -1,0 +1,5 @@
+= form.input :name
+
+= form.simple_fields_for :settings do |setting|
+  = render 'settings/setting_fields', form: setting
+

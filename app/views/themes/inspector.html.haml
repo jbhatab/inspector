@@ -1,21 +1,14 @@
-.row.spacer-bottom.spacer-top
-  .col-sm-2.col-sm-offset-3
-    = link_to 'Activate Inspector', '#', class: 'btn btn-success btn-block trigger-inspector'
+.row
+  .col-sm-6
+    %h2.page-title
+      Theme Inspector
 
-  .col-sm-2
-    %form
-      %select.data-selector.form-control
-        %option{value: 'page.title'} Title
-        %option{value: 'page.main-photo'} Main Photo
-        %option{value: 'page.main-link-1'} Main Link 1
-        %option{value: 'page.main-link-2'} Main Link 2
-        %option{value: 'page.contact'} Contact
+  .col-sm-6
+    = render 'themes/sub_nav', theme: @theme
 
-  .col-sm-2
-    = link_to 'Show Website', @theme, class: 'btn btn-default btn-block', target: '_blank'
 
-.row.spacer-bottom
-  .col-sm-6.col-sm-offset-3
+.row
+  .col-sm-7
     .inspector-wrapper
       .details
         %p
@@ -26,10 +19,24 @@
           %b Data Attribute:
           %span.data-attribute
 
+  .col-sm-5
+    .row
+      .col-sm-12
+        %form
+          %select.data-selector.form-control
+            %option{value: 'page.title'} Title
+            %option{value: 'page.main-photo'} Main Photo
+            %option{value: 'page.main-link-1'} Main Link 1
+            %option{value: 'page.main-link-2'} Main Link 2
+            %option{value: 'page.contact'} Contact
+
+      .col-sm-12
+        = link_to 'Activate Inspector', '#', class: 'btn btn-success btn-block trigger-inspector'
+
 
 
 .row
-  .col-sm-8.col-sm-offset-2
+  .col-sm-12
 
     .iframe-wrapper
       %iframe{src: theme_url(@theme), width: '100%', height: 600, id: 'iframe'}

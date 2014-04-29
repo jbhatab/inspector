@@ -1,0 +1,10 @@
+.nested-fields
+  .panel.panel-default
+    .panel-body
+      = link_to_remove_association form, class: 'btn btn-danger remove-box' do
+        %i.fa.fa-times
+      = form.input :name, label: (form.object.name.blank? ? 'Setting Group - New' : ('Setting Group - <b>'+form.object.name.split.map(&:capitalize).join(' ') + '</b>').html_safe), placeholder: 'Title of setting group...', required: false
+
+      = form.simple_fields_for :settings do |setting|
+        = render 'settings/setting_fields', form: setting
+

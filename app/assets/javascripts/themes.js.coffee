@@ -60,4 +60,3 @@ $ ->
                .addClass 'btn-success'
 
         $(this).html('Activate Inspector')
-

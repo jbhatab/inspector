@@ -1,0 +1,12 @@
+.btn-group.sub-nav-link
+  = link_to theme, class: 'btn btn-default', target: '_blank' do
+    %i.fa.fa-desktop
+    View
+
+  = link_to inspector_theme_path(theme), class: 'btn btn-default btn-primary' do
+    %i.fa.fa-search-plus
+    Inspector
+
+  = link_to settings_theme_path(theme), class: 'btn btn-warning' do
+    %i.fa.fa-gears
+    Settings

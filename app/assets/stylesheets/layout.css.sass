@@ -1,21 +1,44 @@
 $midnight-blue: rgb(44, 62, 80)
 
-html:not(.themes-show), body:not(.themes-show)
+html, body
   font-size: 20px
   line-height: 32px
 
-body:not(.themes-show)
+body
   background-color: $midnight-blue
 
-
-.row.spacer-bottom:not(.themes-show)
+.row
   margin-bottom: 1rem
 
-.row.spacer-top:not(.themes-show)
-  margin-top: 1rem
+.panel .row:last-child
+  margin-bottom: 0
 
 
 .btn.expand
   border-radius: 0
   border: none
   margin: 0
+
+header
+  padding-bottom: 1rem
+  border-bottom: 1px solid #fff
+
+.logo
+  font-family: 'Lobster'
+  text-shadow: 2px 2px 5px #000
+  margin-left: 1rem
+  a
+    color: #fff
+    font-size: 2.5rem
+
+.logo:hover
+  a
+    text-decoration: none
+
+.page-title
+  color: #fff
+  font-size: 1.75rem
+  font-family: 'Roboto'
+  font-weight: 300
+
+.has-error

@@ -1,3 +1,13 @@
+.row
+  .col-sm-6
+    %h2.page-title
+      New Theme
+
+  .col-sm-6
+    = link_to new_theme_path, class: 'btn btn-default sub-nav-link' do
+      %i.fa.fa-plus-circle
+      New Theme
+
 - @themes.each_slice(4) do |slice|
   .row.listing-row
     - slice.each do |theme|
