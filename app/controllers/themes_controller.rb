@@ -56,7 +56,12 @@ class ThemesController < ApplicationController
         :setting_groups_attributes => [
           :id,
           :name,
+          :_destroy,
+          :settings_attributes => [
+          :id,
+          :name,
           :_destroy
+        ]
         ]
       )
     end

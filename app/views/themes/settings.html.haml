@@ -15,27 +15,30 @@
 
           = form.input :name, label: 'Title', placeholder: 'Theme Title...', required: false
 
-          = form.input :description, label: 'Description', input_html: {class: 'theme-description'}, placeholder: 'Give a brief description of the theme...'
+          = form.input :description, label: 'Description', label_html: {class: 'spacer'}, input_html: {class: 'theme-description'}, placeholder: 'Give a brief description of the theme...'
+
+  
 
   .row
     .col-sm-6
       %h2.page-title
-        Custom Settings
+        Setting Groups
 
     .col-sm-6
-      = link_to root_path, class: 'btn btn-default sub-nav-link' do
+      = link_to_add_association form, :setting_groups, class: 'btn btn-default sub-nav-link', :'data-association-insertion-node' => '#setting_groups', :'data-association-insertion-method' => 'prepend' do
         %i.fa.fa-plus-circle
         Add Setting Group
 
-  
-  .row
-    .col-sm-12
-      = form.simple_fields_for :setting_groups do |setting_group|
+  .row#setting_groups
+    = form.simple_fields_for :setting_groups do |setting_group|
+      = render 'setting_group_fields', f: setting_group
 
-        = render 'setting_groups/setting_group_fields', form: setting_group
+      
+      
+
 
 
   .actions
     %button.btn.btn-default
       %i.fa.fa-refresh
-      Update Theme
+      Update Theme & Settings
