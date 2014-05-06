@@ -11,11 +11,22 @@ $ ->
         hover_block.css('left', event.data[3] + 'px')
         hover_block.css('top', event.data[4] + 'px')
 
-    $('.inspector-wrapper .details span.data-attribute').html $('select.data-selector').val()
+    @setting_selector = $('.setting-selector').first()
+    $('.inspector-wrapper .details span.data-attribute').html @setting_selector.val()
+
+    @setting_selector.show()
 
     # Event handler for the select dropdown
     win = document.getElementById("iframe").contentWindow
-    $('select.data-selector').change ->
+    $('select.setting-group-selector').change ->
+      setting_selector = $('.'+$('.setting-group-selector').val())
+      $('.setting-selector').hide()
+      setting_selector.show()
+      $('.inspector-wrapper .details span.data-attribute').html setting_selector.val()
+      win.postMessage [setting_selector.val(), true], window.location.origin + Routes.theme_path(1)
+      return false
+
+    $('select.setting-selector').change ->
       $('.inspector-wrapper .details span.data-attribute').html $(this).val()
       win.postMessage [$(this).val(), true], window.location.origin + Routes.theme_path(1)
       return false
@@ -35,8 +46,8 @@ $ ->
 
         # Sends the name of current data object
         # that will be injected in the iframe
-        # console.log $('select.data-selector').val()
-        win.postMessage [$('select.data-selector').val(), true], window.location.origin + Routes.theme_path(1)
+        # console.log $('select.setting-group-selector').val()
+        win.postMessage [$('select.setting-selector:visible').val(), true], window.location.origin + Routes.theme_path(1)
 
         $(this).removeClass 'btn-success'
                .addClass 'btn-danger'
@@ -54,7 +65,7 @@ $ ->
         # Sends the name of current data object
         # that will be injected in the iframe
         # console.log $('select.data-selector').val()
-        win.postMessage [$('select.data-selector').val(), false], window.location.origin + Routes.theme_path(1)
+        win.postMessage [$('select.setting-group-selector').val(), false], window.location.origin + Routes.theme_path(1)
 
         $(this).removeClass 'btn-danger'
                .addClass 'btn-success'

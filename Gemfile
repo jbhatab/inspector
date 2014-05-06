@@ -16,7 +16,13 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'rails_12factor', group: :production
 
+gem 'figaro'
+
 gem 'cocoon'
+
+gem 'dropbox-sdk'
+gem 'omniauth'
+gem 'omniauth-dropbox-oauth2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

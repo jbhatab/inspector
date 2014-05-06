@@ -25,13 +25,13 @@
         Setting Groups
 
     .col-sm-6
-      = link_to_add_association form, :setting_groups, class: 'btn btn-default sub-nav-link', :'data-association-insertion-node' => '#setting_groups', :'data-association-insertion-method' => 'prepend' do
+      = link_to_add_association form, :setting_groups, class: 'btn btn-default sub-nav-link', :'data-association-insertion-node' => '#setting_groups', :'data-association-insertion-method' => 'prepend', partial: 'setting_groups/fields_settings' do
         %i.fa.fa-plus-circle
         Add Setting Group
 
   .row#setting_groups
     = form.simple_fields_for :setting_groups do |setting_group|
-      = render 'setting_group_fields', f: setting_group
+      = render 'setting_groups/fields_settings', f: setting_group
 
       
       

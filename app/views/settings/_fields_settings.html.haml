@@ -1,0 +1,8 @@
+.nested-fields.col-sm-6
+  .row
+    .col-xs-10.col-md-11.col-lg-11
+      = f.input :name, label: false, placeholder: 'Setting name...'
+
+    .col-xs-2.col-md-1.col-lg-1
+      = link_to_remove_association f, class: 'btn btn-danger remove-box' do
+        %i.fa.fa-times

@@ -15,6 +15,14 @@
       %h1.logo
         = link_to 'Skypager', root_path
 
+      - if current_user
+        = link_to 'Sign Out', signout_path, class: 'btn btn-default login-button'
+          
+
+      - else
+        = link_to "Sign in with Dropbox", '/auth/dropbox_oauth2', class: 'btn btn-default login-button'
+
+
     .container
       = yield
 

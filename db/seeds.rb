@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+theme = Theme.create(name: 'Test Theme', description: 'This is a test theme.')
+
+sg_info = theme.setting_groups.build(name: 'Information')
+sg_info.save
+sg_info.settings.create([{name: 'Company Name'}, {name: 'Contact Email'}, {name: 'About Us'} ])
+
+sg_links = theme.setting_groups.build(name: 'Links')
+sg_links.save
+sg_links.settings.create([{name: 'Main Link 1'}, {name: 'Main Link 2'}, {name: 'Contact'}, {name: 'About'} ])
+

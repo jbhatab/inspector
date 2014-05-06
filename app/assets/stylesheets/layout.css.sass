@@ -1,4 +1,5 @@
 $midnight-blue: rgb(44, 62, 80)
+$purple: rgba(155, 89, 182,1.0)
 
 html, body
   font-size: 20px
@@ -13,11 +14,26 @@ body
 .panel .row:last-child
   margin-bottom: 0
 
+.no-margin
+  margin: 0
 
 .btn.expand
   border-radius: 0
   border: none
   margin: 0
+
+.btn.btn-info
+  background-color: $purple
+  border-color: darken($purple, 5%)
+
+.btn.btn-info:hover
+  background-color: darken($purple, 10%)
+  border-color: darken($purple, 15%)
+
+.login-button
+  position: absolute
+  top: 33px
+  right: 1rem
 
 header
   padding-bottom: 1rem

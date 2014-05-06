@@ -4,7 +4,7 @@ class Setting < ActiveRecord::Base
   validates_presence_of :name
   validates_format_of :name, with: /[a-zA-Z0-9\s]+/
 
-  def self.get_slug
-    name.parametize
+  def get_slug
+    name.parameterize
   end
 end

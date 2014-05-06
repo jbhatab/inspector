@@ -24,7 +24,7 @@ $ ->
       return false
 
     .on 'click', (e) =>
-      if @inspector_active and @data_name.split('.')[0] == 'page'
+      if @inspector_active
         $(e.target).attr('data-template-key', @data_name)
         alert('Successfully added ' + @data_name)
         return false

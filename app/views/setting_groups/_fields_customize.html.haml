@@ -1,0 +1,9 @@
+.nested-fields.col-sm-12
+  .panel.panel-default
+    .panel-body
+      %h2.panel-header.no-margin
+        = f.object.name      
+
+      .row#settings
+        = f.simple_fields_for :settings do |setting|
+          = render 'settings/fields_customize', f: setting

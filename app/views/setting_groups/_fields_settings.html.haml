@@ -1,0 +1,20 @@
+.nested-fields.col-sm-12
+  .panel.panel-default
+    .panel-body
+
+      = f.input :name, label: (f.object.name.blank? ? 'New Setting Group' : ('<b>'+f.object.name.split.map(&:capitalize).join(' ') + '</b> Setting Group').html_safe), placeholder: 'Title...', required: false
+
+
+      %label.spacer Options
+      
+
+      .row#settings
+        = f.simple_fields_for :settings do |setting|
+          = render 'settings/fields_settings.html.haml', f: setting
+
+
+        .col-sm-12
+          = link_to_add_association f, :settings, class: 'btn btn-default', :'data-association-insertion-method' => 'before', partial: 'settings/fields_settings' do
+            %i.fa.fa-plus-circle
+            Add Setting
+

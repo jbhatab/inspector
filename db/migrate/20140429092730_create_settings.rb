@@ -4,6 +4,7 @@ class CreateSettings < ActiveRecord::Migration
       t.references :setting_group, index: true
 
       t.string :name
+      t.string :value
 
       t.timestamps
     end

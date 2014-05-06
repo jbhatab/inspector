@@ -17,6 +17,10 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
   end
 
+  def customize
+    @theme = Theme.find(params[:id])
+  end
+
   def new
     @theme = Theme.new
   end

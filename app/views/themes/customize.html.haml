@@ -1,0 +1,37 @@
+.row
+  .col-sm-6
+    %h2.page-title
+      Theme Customization
+
+  .col-sm-6
+    = render 'themes/sub_nav', theme: @theme
+
+.panel.panel-default
+  .panel-body
+    %h2.panel-header.no-margin
+      = @theme.name        
+
+    .row
+      .col-sm-12
+        %p= @theme.description
+
+= simple_form_for @theme do |form|
+  = form.error_notification
+  .row
+    .col-sm-12
+      %h2.page-title
+        Custom Settings
+
+  .row#setting_groups
+    = form.simple_fields_for :setting_groups do |setting_group|
+      = render 'setting_groups/fields_customize', f: setting_group
+
+      
+      
+
+
+
+  .actions
+    %button.btn.btn-default
+      %i.fa.fa-refresh
+      Update Theme & Settings

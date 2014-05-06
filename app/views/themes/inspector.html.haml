@@ -8,7 +8,7 @@
 
 
 .row
-  .col-sm-7
+  .col-sm-6
     .inspector-wrapper
       .details
         %p
@@ -19,17 +19,16 @@
           %b Data Attribute:
           %span.data-attribute
 
-  .col-sm-5
+  .col-sm-6
     .row
-      .col-sm-12
+      .col-sm-6
         %form
-          %select.data-selector.form-control
-            %option{value: 'page.title'} Title
-            %option{value: 'page.main-photo'} Main Photo
-            %option{value: 'page.main-link-1'} Main Link 1
-            %option{value: 'page.main-link-2'} Main Link 2
-            %option{value: 'page.contact'} Contact
+          = collection_select(:setting_group, :theme_id, @theme.setting_groups, :get_slug, :name, {}, {class: 'setting-group-selector form-control'})
 
+      .col-sm-6
+        %form
+          - @theme.setting_groups.each do |setting_group|
+            = render 'settings/selector', setting_group: setting_group
       .col-sm-12
         = link_to 'Activate Inspector', '#', class: 'btn btn-success btn-block trigger-inspector'
 
